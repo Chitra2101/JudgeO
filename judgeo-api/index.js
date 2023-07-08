@@ -17,7 +17,6 @@ db.once('open', () => {
   console.log('Connected to MongoDB');
 });
 
-// Define the code schema and model
 const codeSchema = new mongoose.Schema({
   code: {
     type: String,
@@ -31,16 +30,11 @@ const codeSchema = new mongoose.Schema({
 
 const Code = mongoose.model('Code', codeSchema);
 
-// API endpoint for code judging
 app.post('/api/judge', async (req, res) => {
   try {
     // Retrieve the code and language from the request body
     const { code, language } = req.body;
 
-    // TODO: Implement your code judging logic here
-    // You can use any code execution or evaluation libraries as needed
-
-    // For this example, we'll assume a simple check for a specific code
     if (code === 'console.log("Hello, World!");' && language === 'javascript') {
       res.json({
         status: 'accepted',
